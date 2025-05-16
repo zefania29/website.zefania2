@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Minimalist Baker</title>
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #f7f7f7;
+        color: #333;
+      }
+
+      header {
+        background-color: #ffdce0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 16px 32px;
+        flex-wrap: wrap;
+      }
+
+      .logo {
+        font-weight: bold;
+        background-color: white;
+        padding: 6px 12px;
+        border-radius: 12px;
+      }
+
+      nav a {
+        margin-left: 16px;
+        text-decoration: none;
+        color: #333;
+        font-weight: 500;
+        cursor: pointer;
+      }
+
+      nav a:hover {
+        color: #ff6600;
+      }
+
+      main {
+        padding: 40px 20px;
+        text-align: center;
+        background-color: #f1f1f1;
+      }
+
+      .intro h1 {
+        font-size: 36px;
+        margin-bottom: 10px;
+      }
+
+      .intro p {
+        font-size: 18px;
+        color: #777;
+        margin-bottom: 20px;
+      }
+
+      .search {
+        margin-bottom: 30px;
+      }
+
+      .search input {
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+        width: 200px;
+      }
+
+      .search button {
+        padding: 10px 16px;
+        background-color: #333;
+        color: white;
+        border: none;
+        border-radius: 6px;
+        margin-left: 8px;
+        cursor: pointer;
+      }
+
+      .search button:hover {
+        background-color: #555;
+      }
+
+      .recipes,
+      .gallery,
+      .search-results {
+        display: none;
+        justify-content: center;
+        gap: 60px;
+        margin-top: 40px;
+        flex-wrap: wrap;
+      }
+
+      .column {
+        text-align: left;
+      }
+
+      .column h3 {
+        margin-bottom: 10px;
+        font-size: 18px;
+      }
+
+      .column ul {
+        list-style: none;
+        padding-left: 0;
+      }
+
+      .column li {
+        margin-bottom: 8px;
+        font-size: 16px;
+      }
+
+      .gallery img {
+        width: 200px;
+        height: 150px;
+        object-fit: cover;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      }
+
+      @media (max-width: 768px) {
+        header {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+
+        nav {
+          margin-top: 10px;
+        }
+
+        .recipes,
+        .gallery,
+        .search-results {
+          flex-direction: column;
+          align-items: center;
+        }
+
+        .search input {
+          width: 100%;
+          max-width: 240px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="logo">Minimalist Baker</div>
+      <nav>
+        <a onclick="showSection('vegan')">Vegan</a>
+        <a onclick="showSection('glutenFree')">Gluten-Free</a>
+        <a onclick="showSection('photo')">Photo</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="intro">
+        <h1>MINIMALIST BAKER</h1>
+        <p>Simple Recipes That Make You Feel Good</p>
+        <form class="search" onsubmit="searchRecipes(); return false;">
+          <input type="text" id="searchInput" placeholder="New Recipes" />
+          <button type="submit">Submit</button>
+        </form>
+      </section>
+
+      <!-- Vegan -->
+      <section class="recipes" id="vegan">
+        <div class="column">
+          <h3>Vegan</h3>
+          <ul>
+            <li>Baked Manggo Oatmeal Cake</li>
+            <li>Vegan Brown Sugar</li>
+            <li>Banana Bread Cake Vegan</li>
+            <li>Cupcake Vanilla Vegan</li>
+            <li>Cheese Cake Vegan</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- Gluten-Free -->
+      <section class="recipes" id="glutenFree">
+        <div class="column">
+          <h3>Gluten-Free</h3>
+          <ul>
+            <li>Gluten-free Strawberry Cake</li>
+            <li>Gluten-free Carrot Cake</li>
+            <li>Gluten-free Bolu Singkong</li>
+            <li>Almond Carrot Cake Gluten-free</li>
+            <li>Chocolate Chips Cookies Gluten-free</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- Photo Gallery -->
+      <section class="gallery" id="photo">
+        <img src="image/Mango-Baked-Oatmeal-8.jpg" alt="Mango Baked Oatmeal" />
+        <img
+          src="image/Vegan-Brown-Sugar-Maple-Cookies0029.jpg"
+          alt="Vegan Brown Sugar"
+        />
+        <img
+          src="image/vegan-banana-bread-1.jpg"
+          alt="Banana Bread Cake Vegan"
+        />
+        <img src="image/cupcake vanila.jpg" alt="Cupcake Vanilla Vegan" />
+        <img src="image/vegan cheesecake.jpg" alt="Cheese Cake Vegan" />
+        <img src="image/strawberry cake.jpg" alt="Strawberry Cake" />
+        <img src="image/carrot cake.jpg" alt="Carrot Cake" />
+        <img src="image/bolu singkong.jpg" alt="Bolu Singkong" />
+        <img src="image/almond carrot cake.jpg" alt="Almond Carrot Cake" />
+        <img
+          src="image/chocolate chips cookies.jpg"
+          alt="Chocolate Chips Cookies"
+        />
+      </section>
+
+      <!-- Hasil Pencarian -->
+      <section class="search-results" id="searchResults">
+        <div class="column">
+          <h3>Hasil Pencarian</h3>
+          <ul id="resultsList"></ul>
+        </div>
+      </section>
+    </main>
+
+    <script>
+      const recipes = [
+        "Baked Manggo Oatmeal Cake",
+        "Vegan Brown Sugar",
+        "Banana Bread Cake Vegan",
+        "Cupcake Vanilla Vegan",
+        "Cheese Cake Vegan",
+        "Gluten-free Strawberry Cake",
+        "Gluten-free Carrot Cake",
+        "Gluten-free Bolu Singkong",
+        "Almond Carrot Cake Gluten-free",
+        "Chocolate Chips Cookies Gluten-free",
+      ];
+
+      function showSection(sectionId) {
+        document
+          .querySelectorAll(".recipes, .gallery, .search-results")
+          .forEach((el) => {
+            el.style.display = "none";
+          });
+
+        const section = document.getElementById(sectionId);
+        if (section) {
+          section.style.display = "flex";
+        }
+      }
+
+      function searchRecipes() {
+        const keyword = document
+          .getElementById("searchInput")
+          .value.toLowerCase();
+        const resultsList = document.getElementById("resultsList");
+        resultsList.innerHTML = "";
+
+        if (keyword.trim() === "") {
+          alert("Masukkan kata kunci pencarian.");
+          return;
+        }
+
+        const matches = recipes.filter((name) =>
+          name.toLowerCase().includes(keyword)
+        );
+
+        if (matches.length > 0) {
+          matches.forEach((item) => {
+            const li = document.createElement("li");
+            li.textContent = item;
+            resultsList.appendChild(li);
+          });
+        } else {
+          resultsList.innerHTML = "<li>Tidak ditemukan.</li>";
+        }
+
+        showSection("searchResults");
+      }
+    </script>
+  </body>
+</html>
